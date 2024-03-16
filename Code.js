@@ -85,7 +85,7 @@ function main() {
   var htmlEmail = htmlTemplate.evaluate().getContent();
 
   //send email
-  GmailApp.sendEmail(
+  MailApp.sendEmail(
     emailRecipient, 
     'NCHS Student Application Form', 
     'This email contains html', {
