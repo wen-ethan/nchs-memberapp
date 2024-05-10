@@ -30,6 +30,7 @@ function main() {
   var questionTwo = recentResponse[0][18];
   var questionuThree = recentResponse[0][19];
   var questionFour = recentResponse[0][20];
+  var gender = recentResponse[0][21];
 
   //split the birthday into its corresponding values, instead of one large string
   var bdayWhole = recentResponse[0][3];
@@ -37,7 +38,15 @@ function main() {
   bdayArray = bdayWhole.split("/");
   // Logger.log(bdayArray);
 
-  //set the google doc to create a copy of and the folder to put the copies into
+  //Change gender to chinese character
+  // Logger.log(gender);
+  if (gender == "Male") {
+    gender = "男";
+  } else {
+    gender = "女";
+  }
+  // Logger.log(gender);
+
   //then create the copy
   var file = DriveApp.getFileById('1QNGbtm24GD-tAHl6MYMEuGgj3ZiaVUjuxgQDTUXC1ac'); 
   var folder = DriveApp.getFolderById('1_ttA3-eJrQfy0jUJ63uxDNkxQMZz0DRW')
@@ -72,6 +81,20 @@ function main() {
   body.replaceText('{{questionThree}}', questionuThree);
   body.replaceText('{{questionFour}}', questionFour);
 
+  //Find the mention of the text, get its index start and stop
+  var nannu = body.findText(gender);
+  var nannuStart = nannu.getStartOffset();
+  var nannuEnd = nannu.getEndOffsetInclusive();
+
+  //get the text as element to be able to edit it as text
+  var nannuE = nannu.getElement();
+
+  //as text, set only the selected text bold and highlighted
+  nannuE.asText()
+        .setBold(nannuStart, nannuEnd, true)
+        .setBackgroundColor(nannuStart, nannuEnd, '#b3b3b3');
+
+  
   //save doc, keeps changes made
   doc.saveAndClose(); 
 
