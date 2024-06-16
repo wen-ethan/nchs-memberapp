@@ -2,11 +2,11 @@
 
 ## Overview
 
-The NCHS Member App is a mobile application designed to streamline and enhance the member management process for the North Central High School (NCHS) community. This app serves as a comprehensive solution for managing member information, tracking attendance, and facilitating communication within the community. 
+The NCHS Member App is a streamlined application designed to make member applications for the National Chinese Honors Society (NCHS) easier. The responses from the linked Google Form are automatically used to fill out the official member application template, then send the PDF in an email to the prospective members. 
 
 ## Features
 
-- **Easy Application**: Easily fill out the application from the comfort of a Google Form.
+- **Easy Application**: Easily complete the application from the comfort of a Google Form.
 - **Filled Template**: Fills template of official PDF application using substitution.
 - **Email**: Automatically send email with next steps and filled-out template.
 ## License
